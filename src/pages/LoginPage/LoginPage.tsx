@@ -58,15 +58,23 @@ const LoginPage = (): JSX.Element => {
 
       <h1>LoginPage!</h1>
 
-      <form onSubmit={submitForm} className="login-page__form">
-        <label htmlFor="email">Email:</label>
-        <input ref={emailRef} type="text" id="email" />
+      {authInfo?.userInfo ? (
+        <>
+          <p>Bienvenido { authInfo.userInfo.firstName }</p>
+          <p>Si quieres salir pulsa aquí</p>
+          <button onClick={authInfo.logout}>Log out</button>
+        </>
+      ) : (
+        <form onSubmit={submitForm} className="login-page__form">
+          <label htmlFor="email">Email:</label>
+          <input ref={emailRef} type="text" id="email" />
 
-        <label htmlFor="password">Password:</label>
-        <input ref={passwordRef} type="text" id="password" />
+          <label htmlFor="password">Password:</label>
+          <input ref={passwordRef} type="text" id="password" />
 
-        <input type="submit" title="Log in" />
-      </form>
+          <input type="submit" title="Log in" />
+        </form>
+      )}
     </div>
   );
 };

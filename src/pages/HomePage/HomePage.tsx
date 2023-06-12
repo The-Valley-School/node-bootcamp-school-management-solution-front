@@ -6,7 +6,7 @@ const HomePage = (): JSX.Element => {
     <div className="home-page page">
       <Header></Header>
 
-      <h1>HomePage!</h1>
+      <h1>Home Page!</h1>
       <p>Bienvenidos a la web de gestión del colegio Molón</p>
     </div>
   );

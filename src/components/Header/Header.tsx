@@ -8,18 +8,25 @@ const Header = (): JSX.Element => {
 
   return (
     <header className="header">
-      <NavLink to="/" className="header__link">
-        Home
-      </NavLink>
-      <NavLink to="/classroom" className="header__link">
-        Classroom
-      </NavLink>
-      <NavLink to="/subject" className="header__link">
-        Subject
-      </NavLink>
-      <NavLink to="/user" className="header__link">
-        User
-      </NavLink>
+      <div className="header__home">
+        <NavLink to="/" className="header__link">
+          Home
+        </NavLink>
+      </div>
+
+      {authInfo?.userInfo && (
+        <>
+          <NavLink to="/classroom" className="header__link">
+            Classroom
+          </NavLink>
+          <NavLink to="/subject" className="header__link">
+            Subject
+          </NavLink>
+          <NavLink to="/user" className="header__link">
+            User
+          </NavLink>
+        </>
+      )}
 
       <div className="header__user-info">
         {authInfo?.userInfo ? (
