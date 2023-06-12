@@ -1,8 +1,11 @@
+import Header from "../../components/Header/Header";
 import "./SubjectPage.scss";
 
 const SubjectPage = (): JSX.Element => {
   return (
     <div className="subject-page">
+      <Header></Header>
+
       <h1>SubjectPage!</h1>
     </div>
   );
