@@ -15,4 +15,20 @@
       text-decoration: underline;
     }
   }
+
+  &__user-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+  }
+
+  &__name {
+    margin-right: 10px;
+  }
+
+  &__logout {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

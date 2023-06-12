@@ -3,7 +3,7 @@ import "./ClassroomPage.scss";
 
 const ClassroomPage = (): JSX.Element => {
   return (
-    <div className="classroom-page">
+    <div className="classroom-page page">
 
       <Header></Header>
 

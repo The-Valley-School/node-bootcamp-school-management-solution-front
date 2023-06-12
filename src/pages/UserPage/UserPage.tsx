@@ -3,7 +3,7 @@ import "./UserPage.scss";
 
 const UserPage = (): JSX.Element => {
   return (
-    <div className="user-page">
+    <div className="user-page page">
       <Header></Header>
 
       <h1>UserPage!</h1>
