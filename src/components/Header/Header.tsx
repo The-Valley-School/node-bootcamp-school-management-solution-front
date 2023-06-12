@@ -2,6 +2,7 @@ import { useContext } from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../App";
+import { ROL } from "../../models/User";
 
 const Header = (): JSX.Element => {
   const authInfo = useContext(AuthContext);
@@ -14,7 +15,7 @@ const Header = (): JSX.Element => {
         </NavLink>
       </div>
 
-      {authInfo?.userInfo && (
+      {authInfo?.userInfo && (authInfo?.userInfo?.rol === ROL.ADMIN || authInfo?.userInfo?.rol === ROL.TEACHER) && (
         <>
           <NavLink to="/classroom" className="header__link">
             Classroom
