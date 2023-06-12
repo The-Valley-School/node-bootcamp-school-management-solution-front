@@ -5,8 +5,10 @@ import { AuthContext } from "../../App";
 import { Navigate } from "react-router-dom";
 import { ClassroomResponse } from "../../models/Classroom";
 import ClassroomTable from "./ClassroomTable/ClassroomTable";
+import ClassroomForm from "./ClassroomForm/ClassroomForm";
 
 const ClassroomPage = (): JSX.Element => {
+  const API_URL_CLASSROOM = `${process.env.REACT_APP_API_URL as string}/classroom`;
   const authInfo = useContext(AuthContext);
   const [classrooms, setClassrooms] = useState<ClassroomResponse[]>([]);
 
@@ -16,7 +18,7 @@ const ClassroomPage = (): JSX.Element => {
 
   const fetchClassrooms = (): void => {
     if (authInfo?.userToken) {
-      fetch("http://localhost:3000/classroom", {
+      fetch(API_URL_CLASSROOM, {
         headers: {
           Authorization: `Bearer ${authInfo.userToken}`,
         },
@@ -44,7 +46,11 @@ const ClassroomPage = (): JSX.Element => {
           <Header></Header>
           <h1>Classroom Page!</h1>
 
+          <h3>Listado de clases:</h3>
           <ClassroomTable classrooms={classrooms}></ClassroomTable>
+
+          <h3>Crear clase:</h3>
+          <ClassroomForm fetchClassrooms={fetchClassrooms} userToken={authInfo?.userToken}></ClassroomForm>
         </>
       ) : (
         <Navigate to="/login" replace={true}></Navigate>
